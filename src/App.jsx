@@ -1,6 +1,7 @@
 import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { FadingImageDisplacement } from "./components/FadingImageDisplacement";
+import { Billboard, Text } from "@react-three/drei";
 
 function App() {
   return (

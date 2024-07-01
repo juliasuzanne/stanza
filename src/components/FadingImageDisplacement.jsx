@@ -2,6 +2,7 @@ import { shaderMaterial, useTexture } from "@react-three/drei";
 import { extend, useFrame } from "@react-three/fiber";
 import { useRef, useState } from "react";
 import * as THREE from "three";
+import { easing, geometry } from "maath";
 
 export const ImageFadeMaterial = shaderMaterial(
   {
@@ -39,7 +40,7 @@ export const ImageFadeMaterial = shaderMaterial(
     }`
 );
 
-extend({ ImageFadeMaterial });
+extend({ ImageFadeMaterial, RoundedPlaneGeometry: geometry.RoundedPlaneGeometry });
 
 export const FadingImageDisplacement = (props) => {
   const ref = useRef();
@@ -49,12 +50,13 @@ export const FadingImageDisplacement = (props) => {
     `/textures/displacement/${props.displacementimg}`,
   ]);
   const [hovered, setHover] = useState(false);
-  useFrame(() => {
-    ref.current.dispFactor = THREE.MathUtils.lerp(ref.current.dispFactor, hovered ? 1 : 0, 0.075);
+  useFrame((_state, delta) => {
+    easing.damp(ref.current, "dispFactor", hovered ? 1 : 0, 0.4, delta);
+    // ref.current.dispFactor = THREE.MathUtils.lerp(ref.current.dispFactor, hovered ? 1 : 0, 0.075);
   });
   return (
-    <mesh onPointerOver={(e) => setHover(true)} onPointerOut={(e) => setHover(false)}>
-      <boxGeometry args={[2.25, 4]} />
+    <mesh {...props} onPointerOver={(e) => setHover(true)} onPointerOut={(e) => setHover(false)}>
+      <roundedPlaneGeometry args={[2.25, 4]} />
       <imageFadeMaterial ref={ref} tex={texture1} tex2={texture2} disp={dispTexture} toneMapped={false} />
     </mesh>
   );

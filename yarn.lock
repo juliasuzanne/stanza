@@ -690,6 +690,11 @@
   dependencies:
     "yallist" "^3.0.2"
 
+"maath@^0.10.7":
+  "integrity" "sha512-zQ2xd7dNOIVTjAS+hj22fyj1EFYmOJX6tzKjZ92r6WDoq8hyFxjuGA2q950tmR4iC/EKXoMQdSipkaJVuUHDTg=="
+  "resolved" "https://registry.npmjs.org/maath/-/maath-0.10.7.tgz"
+  "version" "0.10.7"
+
 "maath@^0.6.0":
   "integrity" "sha512-dSb2xQuP7vDnaYqfoKzlApeRcR2xtN8/f7WV/TMAkBC8552TwTLtOO0JTcSygkYMjNDPoo6V01jTw/aPi4JrMw=="
   "resolved" "https://registry.npmjs.org/maath/-/maath-0.6.0.tgz"
