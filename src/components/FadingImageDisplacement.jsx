@@ -55,7 +55,12 @@ export const FadingImageDisplacement = (props) => {
     // ref.current.dispFactor = THREE.MathUtils.lerp(ref.current.dispFactor, hovered ? 1 : 0, 0.075);
   });
   return (
-    <mesh {...props} onPointerOver={(e) => setHover(true)} onPointerOut={(e) => setHover(false)}>
+    <mesh
+      {...props}
+      onPointerOver={(e) => setHover(true)}
+      onPointerOut={(e) => setHover(false)}
+      onClick={(e) => (window.location.href = `${props.address}`)}
+    >
       <roundedPlaneGeometry args={[2.25, 4]} />
       <imageFadeMaterial ref={ref} tex={texture1} tex2={texture2} disp={dispTexture} toneMapped={false} />
     </mesh>

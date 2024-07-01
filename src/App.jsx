@@ -2,13 +2,18 @@ import { Canvas } from "@react-three/fiber";
 import { Experience } from "./components/Experience";
 import { FadingImageDisplacement } from "./components/FadingImageDisplacement";
 import { Billboard, Text } from "@react-three/drei";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "./Home";
+import { Blog } from "./Blog";
 
 function App() {
   return (
-    <Canvas shadows camera={{ position: [0, 0, 5], fov: 80 }}>
-      <color attach="background" args={["#ececec"]} />
-      <Experience />
-    </Canvas>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

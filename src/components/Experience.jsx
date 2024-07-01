@@ -2,22 +2,28 @@ import { OrbitControls } from "@react-three/drei";
 import { FadingImageDisplacement } from "./FadingImageDisplacement";
 
 export const Experience = () => {
+  function getRandomNum(min, max) {
+    return Math.random() * (max - min) + min;
+  }
+
   return (
     <>
       <OrbitControls />
       <FadingImageDisplacement
-        position-x={1.5}
-        position-z={-2}
+        position-x={getRandomNum(-2, 0)}
+        position-z={getRandomNum(-2, 2)}
         img1="img5.jpg"
         img2="img6.jpg"
+        address="/blog"
         displacementimg="14.jpg"
       />
       <FadingImageDisplacement
-        position-x={-2.5}
-        position-z={1}
+        position-x={getRandomNum(0, 2)}
+        position-z={getRandomNum(1, 2)}
         img1="img2.jpg"
         img2="img3.jpg"
-        displacementimg="11.jpg"
+        address="/blog"
+        displacementimg="13.jpg"
       />
     </>
   );
