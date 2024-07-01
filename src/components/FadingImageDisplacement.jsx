@@ -61,7 +61,7 @@ export const FadingImageDisplacement = (props) => {
       onPointerOut={(e) => setHover(false)}
       onClick={(e) => (window.location.href = `${props.address}`)}
     >
-      <roundedPlaneGeometry args={[2.25, 4]} />
+      <sphereGeometry args={[2.25, 4]} />
       <imageFadeMaterial ref={ref} tex={texture1} tex2={texture2} disp={dispTexture} toneMapped={false} />
     </mesh>
   );
