@@ -6,3 +6,12 @@
 body {
   margin: 0;
 }
+
+.showingdrawing {
+  max-height: 40vh;
+  justify-content: center;
+  height: auto;
+  display: flex;
+  position:relative;
+  width: auto;
+ }

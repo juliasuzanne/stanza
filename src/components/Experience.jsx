@@ -1,14 +1,39 @@
 import { OrbitControls } from "@react-three/drei";
 import { FadingImageDisplacement } from "./FadingImageDisplacement";
+import { useState, useEffect } from "react";
+import { Modal } from "../Modal";
+import React from "react";
 
 export const Experience = () => {
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [currentImage, setCurrentImage] = useState("");
+  const [currentDescription, setCurrentDescription] = useState("");
+
   function getRandomNum(min, max) {
     return Math.random() * (max - min) + min;
   }
 
+  const handleShowModal = () => {
+    console.log("show modal");
+    setIsModalVisible(true);
+  };
+
+  const handleSetCurrentImage = (image) => {
+    setCurrentImage(image);
+  };
+  const handleSetCurrentDescription = (description) => {
+    setCurrentDescription(description);
+  };
+
+  const handleHideModal = () => {
+    console.log("Hide modal");
+    setIsModalVisible(false);
+  };
+
   return (
     <>
       <OrbitControls />
+
       <FadingImageDisplacement
         position-x={getRandomNum(-2, 0)}
         position-z={getRandomNum(-20, -10)}
